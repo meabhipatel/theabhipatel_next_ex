@@ -20,11 +20,10 @@ const fetchProducts = async () => {
 
 const Projects = async () => {
   const products = await fetchProducts();
-  console.log("products --------->", products);
   return (
     <>
       <Navbar />
-      <div className="w-full h-[80vh] flex flex-wrap">
+      <div className="w-full  flex justify-center  flex-wrap text-slate-200/90">
         {products?.map((item) => {
           return <ProductCard item={item} />;
         })}
@@ -57,18 +56,17 @@ export interface IProduct {
   shippingInformation: string;
   availabilityStatus: string;
   reviews: {
-    user: string;
     rating: number;
     comment: string;
+    date: string;
+    reviewerName: string;
+    reviewerEmail: string;
   }[];
   returnPolicy: string;
   minimumOrderQuantity: number;
   meta: {
     [key: string]: any;
   };
-  images: {
-    url: string;
-    altText: string;
-  }[];
+  images: string[];
   thumbnail: string;
 }
