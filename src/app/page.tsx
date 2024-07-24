@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default function Home() {
-  const variable = "";
+  console.log("someting in console.....");
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
