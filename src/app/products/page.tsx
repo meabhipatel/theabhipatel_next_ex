@@ -23,9 +23,14 @@ const Projects = async () => {
   return (
     <>
       <Navbar />
-      <div className="w-full  flex justify-center  flex-wrap text-slate-200/90">
+      <div className="flex w-full flex-wrap justify-center text-slate-200/90">
         {products?.map((item) => {
-          return <ProductCard item={item} />;
+          return (
+            <ProductCard
+              key={item.id}
+              item={item}
+            />
+          );
         })}
       </div>
       ;

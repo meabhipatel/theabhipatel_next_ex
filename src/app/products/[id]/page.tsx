@@ -22,9 +22,12 @@ const Product = async ({ params }: { params: { id: string } }) => {
     return (
       <>
         <Navbar />
-        <div className="w-full h-[80vh] flex flex-col justify-center items-center  font-bold">
+        <div className="flex h-[80vh] w-full flex-col items-center justify-center font-bold">
           <h1 className="text-4xl">Product not found.</h1>
-          <Link href={"/"} className="mt-10 hover:underline">
+          <Link
+            href={"/"}
+            className="mt-10 hover:underline"
+          >
             Go Back to Home
           </Link>
         </div>
@@ -33,15 +36,18 @@ const Product = async ({ params }: { params: { id: string } }) => {
     );
 
   return (
-    <section className="py-12 sm:py-16 ">
+    <section className="py-12 sm:py-16">
       <div className="container mx-auto px-4">
         <nav className="flex">
-          <ol role="list" className="flex items-center">
+          <ol
+            role="list"
+            className="flex items-center"
+          >
             <li className="text-left">
               <div className="-m-1">
                 <Link
                   href="/"
-                  className="rounded-md p-1 text-sm font-medium text-gray-400 focus:text-gray-300 focus:shadow hover:text-gray-200"
+                  className="rounded-md p-1 text-sm font-medium text-gray-400 hover:text-gray-200 focus:text-gray-300 focus:shadow"
                 >
                   {" "}
                   Home{" "}
@@ -54,7 +60,7 @@ const Product = async ({ params }: { params: { id: string } }) => {
                 <div className="-m-1">
                   <Link
                     href="/products"
-                    className="rounded-md p-1 text-sm font-medium text-gray-400 focus:text-gray-300 focus:shadow hover:text-gray-200"
+                    className="rounded-md p-1 text-sm font-medium text-gray-400 hover:text-gray-200 focus:text-gray-300 focus:shadow"
                   >
                     {" "}
                     Products{" "}
@@ -67,7 +73,7 @@ const Product = async ({ params }: { params: { id: string } }) => {
                 <span className="mx-2 text-gray-400">/</span>
                 <div className="-m-1">
                   <a
-                    className="rounded-md p-1 text-sm font-medium text-gray-400 focus:text-gray-300 focus:shadow hover:text-gray-200"
+                    className="rounded-md p-1 text-sm font-medium text-gray-400 hover:text-gray-200 focus:text-gray-300 focus:shadow"
                     aria-current="page"
                   >
                     {" "}
@@ -92,11 +98,12 @@ const Product = async ({ params }: { params: { id: string } }) => {
               </div>
               <div className="mt-2 w-full lg:order-1 lg:w-32 lg:flex-shrink-0">
                 <div className="flex flex-row items-start lg:flex-col">
-                  {product.images.map((item) => {
+                  {product.images.map((item, idx) => {
                     return (
                       <button
+                        key={idx}
                         type="button"
-                        className="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-gray-900 text-center"
+                        className="flex-0 mb-3 aspect-square h-20 overflow-hidden rounded-lg border-2 border-gray-900 text-center"
                       >
                         <img
                           className="h-full w-full object-cover"
@@ -111,9 +118,7 @@ const Product = async ({ params }: { params: { id: string } }) => {
             </div>
           </div>
           <div className="lg:col-span-2 lg:row-span-2 lg:row-end-2">
-            <h1 className="sm: text-2xl font-bold text-gray-300 sm:text-3xl">
-              {product.title}
-            </h1>
+            <h1 className="sm: text-2xl font-bold text-gray-300 sm:text-3xl">{product.title}</h1>
             <p className="text-gray-300">{product.description}</p>
             <div className="mt-5 flex items-center">
               <div className="flex items-center">
@@ -173,22 +178,20 @@ const Product = async ({ params }: { params: { id: string } }) => {
                   />
                 </svg>
               </div>
-              <p className="ml-2 text-sm font-medium text-gray-500">
-                {product.reviews.length} Reviews
-              </p>
+              <p className="ml-2 text-sm font-medium text-gray-500">{product.reviews.length} Reviews</p>
             </div>
 
-            <div className="mt-10 flex flex-col items-center justify-between space-y-4 border-t border-b py-4 sm:flex-row sm:space-y-0">
+            <div className="mt-10 flex flex-col items-center justify-between space-y-4 border-b border-t py-4 sm:flex-row sm:space-y-0">
               <div className="flex items-end">
                 <h1 className="text-3xl font-bold">${product.price}</h1>
               </div>
               <button
                 type="button"
-                className="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-gray-900 bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800"
+                className="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-gray-900 bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out hover:bg-gray-800 focus:shadow"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="shrink-0 mr-3 h-5 w-5"
+                  className="mr-3 h-5 w-5 shrink-0"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -269,34 +272,29 @@ const Product = async ({ params }: { params: { id: string } }) => {
             <div className="mt-8 flow-root sm:mt-12">
               <h1 className="text-3xl font-bold">Delivered To Your Door</h1>
               <p className="mt-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-                accusantium nesciunt fuga.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia accusantium nesciunt fuga.
               </p>
-              <h1 className="mt-8 text-3xl font-bold">
-                From the Fine Farms of Brazil
-              </h1>
+              <h1 className="mt-8 text-3xl font-bold">From the Fine Farms of Brazil</h1>
               <p className="mt-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
-                numquam enim facere.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio numquam enim facere.
               </p>
               <p className="mt-4">
-                Amet consectetur adipisicing elit. Optio numquam enim facere.
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore
-                rerum nostrum eius facere, ad neque.
+                Amet consectetur adipisicing elit. Optio numquam enim facere. Lorem ipsum dolor sit amet consectetur,
+                adipisicing elit. Dolore rerum nostrum eius facere, ad neque.
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      <h2 className="my-10 px-20 text-3xl font-semibold ">Reviews</h2>
-      <div className="px-20 flex flex-col gap-5">
-        {product.reviews.map((item) => {
+      <h2 className="my-10 px-20 text-3xl font-semibold">Reviews</h2>
+      <div className="flex flex-col gap-5 px-20">
+        {product.reviews.map((item, idx) => {
           return (
-            <article>
-              <div className="flex items-center mb-4">
+            <article key={idx}>
+              <div className="mb-4 flex items-center">
                 <img
-                  className="w-10 h-10 me-4 rounded-full"
+                  className="me-4 h-10 w-10 rounded-full"
                   src="/docs/images/people/profile-picture-5.jpg"
                   alt=""
                 />
@@ -312,9 +310,9 @@ const Product = async ({ params }: { params: { id: string } }) => {
                   </p>
                 </div>
               </div>
-              <div className="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
+              <div className="mb-1 flex items-center space-x-1 rtl:space-x-reverse">
                 <svg
-                  className="w-4 h-4 text-yellow-300"
+                  className="h-4 w-4 text-yellow-300"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -323,7 +321,7 @@ const Product = async ({ params }: { params: { id: string } }) => {
                   <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                 </svg>
                 <svg
-                  className="w-4 h-4 text-yellow-300"
+                  className="h-4 w-4 text-yellow-300"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -332,7 +330,7 @@ const Product = async ({ params }: { params: { id: string } }) => {
                   <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                 </svg>
                 <svg
-                  className="w-4 h-4 text-yellow-300"
+                  className="h-4 w-4 text-yellow-300"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -341,7 +339,7 @@ const Product = async ({ params }: { params: { id: string } }) => {
                   <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                 </svg>
                 <svg
-                  className="w-4 h-4 text-yellow-300"
+                  className="h-4 w-4 text-yellow-300"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -350,7 +348,7 @@ const Product = async ({ params }: { params: { id: string } }) => {
                   <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                 </svg>
                 <svg
-                  className="w-4 h-4 text-gray-300 dark:text-gray-500"
+                  className="h-4 w-4 text-gray-300 dark:text-gray-500"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -358,14 +356,11 @@ const Product = async ({ params }: { params: { id: string } }) => {
                 >
                   <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                 </svg>
-                <h3 className="ms-2 text-sm font-semibold text-gray-300 dark:text-white">
-                  {item.comment}
-                </h3>
+                <h3 className="ms-2 text-sm font-semibold text-gray-300 dark:text-white">{item.comment}</h3>
               </div>
               <footer className="mb-5 text-sm text-gray-500 dark:text-gray-400">
                 <p>
-                  Reviewed in the United Kingdom on{" "}
-                  <time dateTime="2017-03-03 19:00">March 3, 2017</time>
+                  Reviewed in the United Kingdom on <time dateTime="2017-03-03 19:00">March 3, 2017</time>
                 </p>
               </footer>
             </article>
